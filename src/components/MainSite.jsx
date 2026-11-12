@@ -12,8 +12,8 @@ export default function MainSite({ visible }) {
 
         <h1 className="cs-title">
           <span className="t-grand">Grand</span>
-          <span className="t-theft">Theft</span>
-          <span className="t-india">India</span>
+          <span className="t-grand">Theft</span>
+          <span className="t-grand">India</span>
         </h1>
 
         <p className="cs-coming-soon">Coming Soon</p>
