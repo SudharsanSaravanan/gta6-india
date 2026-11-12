@@ -1,0 +1,128 @@
+/* =================================================================
+   MainSite.css  —  Coming Soon screen
+   ================================================================= */
+
+.coming-soon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Sunset gradient — matches GTA vibe */
+  background:
+    linear-gradient(to bottom,
+      #0d0015 0%,
+      #1a0533 20%,
+      #3d0066 42%,
+      #8b1a4a 58%,
+      #cc3d00 74%,
+      #ff6b35 87%,
+      #ffd700 100%
+    );
+}
+
+/* Scanline overlay */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.07) 2px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Radial glow at bottom */
+.cs-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 110%, rgba(255, 107, 53, 0.4) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content */
+.cs-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  animation: cs-fade-up 1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cs-fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow */
+.cs-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.7rem, 1.1vw, 1.1rem);
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255, 180, 100, 0.8);
+  margin-bottom: clamp(0.6rem, 1.5vh, 1.4rem);
+}
+
+/* Big stacked title */
+.cs-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.86;
+  margin-bottom: clamp(1.2rem, 3vh, 2.5rem);
+}
+
+.t-grand,
+.t-theft,
+.t-india {
+  font-family: 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+  display: block;
+  font-size: clamp(5rem, 13.5vw, 16rem);
+}
+
+.t-grand {
+  color: #fff;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.35);
+}
+
+.t-theft {
+  color: #ff2d78;
+  text-shadow:
+    0 0 24px rgba(255, 45, 120, 0.9),
+    0 0 70px rgba(255, 45, 120, 0.4),
+    5px 5px 0 #7a0030;
+}
+
+.t-india {
+  color: #ff6b35;
+  text-shadow:
+    0 0 24px rgba(255, 107, 53, 0.9),
+    0 0 70px rgba(255, 107, 53, 0.4),
+    5px 5px 0 #7a2a00;
+}
+
+/* Coming Soon badge */
+.cs-coming-soon {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1rem, 2vw, 2rem);
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+
+  /* Blinking cursor feel */
+  animation: cs-blink 2.4s ease-in-out infinite;
+}
+
+@keyframes cs-blink {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}

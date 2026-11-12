@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --neon-pink: #ff2d78;
+  --neon-purple: #c724b1;
+  --neon-orange: #ff6b35;
+  --neon-yellow: #ffd700;
+  --sunset-orange: #ff8c42;
+  --deep-purple: #1a0533;
+  --dark-bg: #0d0015;
+  --text-primary: #fff;
+  --font-display: 'Bebas Neue', 'Prosto One', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-nav: 'Oswald', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: var(--font-body);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Scrollbar styling for main site */
+.main-site::-webkit-scrollbar {
+  width: 6px;
+}
+.main-site::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+.main-site::-webkit-scrollbar-thumb {
+  background: var(--neon-pink);
+  border-radius: 3px;
+}
+
+/* Utility */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
