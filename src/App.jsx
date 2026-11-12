@@ -3,7 +3,21 @@ import LandingScreen from './components/LandingScreen';
 import EmblemPhase from './components/EmblemPhase';
 import SlideshowPhase from './components/SlideshowPhase';
 import MainSite from './components/MainSite';
+import MobileBlock from './components/MobileBlock';
 import './App.css';
+
+// Detect mobile / touch devices
+function useIsMobile() {
+  const check = () =>
+    window.innerWidth < 1024 || /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const [mobile, setMobile] = useState(check);
+  useEffect(() => {
+    const handler = () => setMobile(check());
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+  return mobile;
+}
 
 // Asset configuration — add more bg/ch pairs here as you drop files in /public
 const SLIDE_PAIRS = [
