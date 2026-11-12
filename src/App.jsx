@@ -21,24 +21,25 @@ function useIsMobile() {
 
 // Asset configuration — add more bg/ch pairs here as you drop files in /public
 const SLIDE_PAIRS = [
-  { bg: '/bg1.jpeg', ch: '/ch1.png' },
-  { bg: '/bg2.jpg', ch: '/ch2.png' },
-  { bg: '/bg3.jpg', ch: '/ch3.png' },
-  { bg: '/bg4.jpg', ch: '/ch4.png' },
-  { bg: '/bg5.jpg', ch: '/ch5.png' },
+  { bg: './bg1.jpeg', ch: './ch1.png' },
+  { bg: './bg2.jpg', ch: './ch2.png' },
+  { bg: './bg3.jpg', ch: './ch3.png' },
+  { bg: './bg4.jpg', ch: './ch4.png' },
+  { bg: './bg5.jpg', ch: './ch5.png' },
 ];
 
 // Phases: landing → emblem → slideshow → main
 // 'landing' | 'emblem' | 'slideshow' | 'main'
 
 export default function App() {
+  const isMobile = useIsMobile();
   const [phase, setPhase] = useState('landing');
   const audioRef = useRef(null);
 
   const handleLandingClick = useCallback(() => {
     // Start audio
     if (!audioRef.current) {
-      const audio = new Audio('/gta.mp3');
+      const audio = new Audio('./gta.mp3');
       audio.loop = true;
       audio.volume = 0.6;
       audio.play().catch(() => { });
@@ -54,6 +55,10 @@ export default function App() {
   const handleSlideshowDone = useCallback(() => {
     setPhase('main');
   }, []);
+
+  if (isMobile) {
+    return <MobileBlock />;
+  }
 
   return (
     <div className="app-root">
